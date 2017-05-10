@@ -30,12 +30,14 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
+  margin-top:20px;
 }
 
 .zip-form>input[type='text']{
   font-size:30px;
   font-weight:bold;
   border-radius:5px;
+  border:1px solid #000000;
   width:150px;
   text-align:center;
 }
@@ -44,12 +46,12 @@
   font-size:32px;
   font-weight:bold;
   border-radius:5px;
+  border:0;
   background-color:#37acff;
   color:#f1f1f1; 
   cursor:pointer;
-  padding:5px;
   margin-left:5px;
-  padding:8px;
+  padding:4px 8px; 
 }
 
 .zip-form>button:hover{

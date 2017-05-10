@@ -2,6 +2,7 @@ import { fork, call, take, put } from 'redux-saga/effects'
 import {receiveLocation} from './actions'
 import {getLocation} from './reducer'
 
+//export action types for testing purposes
 export const RECEIVE_LOCATION = 'RECEIVE_LOCATION';
 export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
 export const RECEIVE_FORECAST = 'RECEIVE_FORECAST';

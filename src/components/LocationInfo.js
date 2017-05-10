@@ -7,7 +7,7 @@ export default class LocationInfo extends Component{
         {do{
           if(this.props.city && this.props.stateCode){
             <div>
-              <div className="small-title">
+              <div className="large-title">
                 Location: {this.props.city}, {this.props.stateCode}
               </div>
             </div>
