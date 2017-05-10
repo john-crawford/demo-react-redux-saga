@@ -1,0 +1,144 @@
+/* App styles */
+.app-container{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.large-title{
+  font-size:32px;
+  font-weight:bold;
+}
+
+.small-title{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.content-section{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top:20px;
+}
+
+/* ZipForm styles */
+.zip-form{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zip-form>input[type='text']{
+  font-size:30px;
+  font-weight:bold;
+  border-radius:5px;
+  width:150px;
+  text-align:center;
+}
+
+.zip-form>button{
+  font-size:32px;
+  font-weight:bold;
+  border-radius:5px;
+  background-color:#37acff;
+  color:#f1f1f1; 
+  cursor:pointer;
+  padding:5px;
+  margin-left:5px;
+  padding:8px;
+}
+
+.zip-form>button:hover{
+  background-color:#0e9bff;
+  color:#ffffff;
+}
+
+/* LocationInfo styles */
+.location-info{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size:20px;
+  font-weight:bold;
+  margin-top:15px;
+}
+
+.location-info>.result{
+  margin-left:20px;
+}
+
+/* Images styles */
+.images{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top:15px;
+}
+
+.images-slide{
+  border-radius:10px;
+  margin-left:15px;
+}
+
+/*Forecast styles */
+.forecast{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top:15px;
+}
+
+.forecast-cell{
+  border:2px solid #000000;
+  border-radius:10px;
+  margin-left:15px;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items:center;
+  width:120px;
+}
+
+.forecast-cell>div{
+  width:100%;
+}
+
+.forecast-cell>.title{
+  font-size:18px;
+  font-weight:bold;
+  border-bottom:1px solid #000000;
+  margin-bottom:10px;
+  padding-bottom:5px;
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.forecast-cell>.temp{
+  font-size:14px;
+  font-weight:bold;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.forecast-cell>.temp>.high{
+  color:#ff0000;
+}
+.forecast-cell>.temp>.low{
+  color:#0000ff;
+}
+
+.forecast-cell>.icon{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size:12px;
+}
+
