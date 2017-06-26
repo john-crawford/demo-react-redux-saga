@@ -1,7 +1,7 @@
 # demo-react-redux-saga
 
 ## Description
-This project is meant to serve as a basic demonstration of the use and testability of [redux-saga](https://github.com/redux-saga/redux-saga). In this project you will submit a US Zip code. The app will hit a series of third-party APIs to get location information ([ZipCodeAPI](http://www.zipcodeapi.com)), some images ([Getty Images](http://developers.gettyimages.com/en/)) and the weather forecast ([Weather Underground](https://www.wunderground.com/weather/api/)).
+This project is meant to serve as a basic demonstration of the use and testability of [redux-saga](https://github.com/redux-saga/redux-saga). In this project you will submit a US Zip code. The app will first hit ([ZipCodeAPI](http://www.zipcodeapi.com)) to get location information and then grab the weather forecast ([Weather Underground](https://www.wunderground.com/weather/api/)).
 
 ## Installation
 These instructions require that you have `npm` and `git` installed.
@@ -45,6 +45,5 @@ All files are in `src/`...
 - `components/`: contains the React components 
   - `LocationInfo.js`: Displays the location information
   - `Forecast.js`: Displays the forecast
-  - `Images.js`: Displays the images
   - `ZipForm.js`: Displays the location information
 

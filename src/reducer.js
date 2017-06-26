@@ -1,16 +1,23 @@
 //handles state changes based on dispatched actions
-export default function images(state={}, action) {
+export default (state={}, action) => {
   switch(action.type) {
     case 'RECEIVE_LOCATION':
       return {
         ...state, 
-        city: action.location.city,
-        stateCode: action.location.state
+        location:{
+          city: action.location.city,
+          stateCode: action.location.state,
+          latitude: action.location.lat,
+          longitude: action.location.lng
+        }
       }
-    case 'RECEIVE_IMAGES':
+    case 'LOCATION_ERROR':
       return {
         ...state, 
-        images: action.images.slice(0,4)
+        location:{
+          error: true,
+        },
+        forecast:null
       }
     case 'RECEIVE_FORECAST':
       return {
@@ -22,6 +29,5 @@ export default function images(state={}, action) {
   }
 }
 
-//examples of some basic selectors used to retrieve state (not actually used)
+//example of some basic selector (not actually used in this code)
 export const getLocation = state => {state.city,state.stateCode}
-export const getImages = state => state.images

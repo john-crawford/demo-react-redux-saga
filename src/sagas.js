@@ -6,6 +6,7 @@ import {getLocation} from './reducer'
 export const RECEIVE_LOCATION = 'RECEIVE_LOCATION';
 export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
 export const RECEIVE_FORECAST = 'RECEIVE_FORECAST';
+export const LOCATION_ERROR = 'LOCATION_ERROR';
 
 //hits the ZipCodeAPI to get city and state for the given zip code
 export const getCityState=(zip)=>{
@@ -13,28 +14,11 @@ export const getCityState=(zip)=>{
   const zipUrl='https://www.zipcodeapi.com/rest/'+zipClientKey+'/info.json/'+zip+'/degrees'
 
   return fetch(zipUrl).then(function(response) {
-    return response.json();
+    return response.json()
   }).then(function(data) {
     return data
   }).catch(function() {
     console.log("Error getting location information");
-  });
-}
-
-//Calls the Getty Image API to get some images of the location
-export const getImages=({city,state})=>{
-  const imgKey='vypbagk2dd3xtzw92gamrf4z'
-  const imgUrl='https://api.gettyimages.com/v3/search/images?fields=thumb&sort_order=best&phrase='+city+' '+state
-  return fetch(imgUrl,{
-    headers:{
-      'Api-Key':imgKey
-    }
-  }).then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    return data.images
-  }).catch(function() {
-    console.log("Error getting images");
   });
 }
 
@@ -56,11 +40,13 @@ export function* watchForZip() {
   while(true) {
     const action=yield take('SEARCH_ZIP');
     const location=yield call(getCityState,action.zip)
-    yield put({type:RECEIVE_LOCATION,location})
-    const images=yield call(getImages, location)
-    yield put({type:RECEIVE_IMAGES,images})
-    const forecast=yield call(getForecast, location)
-    yield put({type:RECEIVE_FORECAST,forecast})  
+    if(location.error_code){
+      yield put({type:LOCATION_ERROR})
+    }else{
+      yield put({type:RECEIVE_LOCATION,location})
+      const forecast=yield call(getForecast, location)
+      yield put({type:RECEIVE_FORECAST,forecast})  
+    }
   }
 }
 

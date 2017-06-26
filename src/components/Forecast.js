@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
+
 export default class Forecast extends Component{
   render(){
     return(
-      <div className="content-section">
-        <div className="small-title">
+      <div className="forecast-container">
+        <div className="medium-title">
           Weather Underground Forecast
         </div>
         <div className="forecast">

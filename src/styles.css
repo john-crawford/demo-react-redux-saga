@@ -8,7 +8,12 @@
 }
 
 .large-title{
-  font-size:32px;
+  font-size:48px;
+  font-weight:bold;
+}
+
+.medium-title{
+  font-size:36px;
   font-weight:bold;
 }
 
@@ -17,12 +22,10 @@
   font-weight:bold;
 }
 
-.content-section{
-  display:flex;
-  flex-direction:column;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top:20px;
+.error-title{
+  font-size:24px;
+  font-weight:bold;
+  color:#ff3333;
 }
 
 /* ZipForm styles */
@@ -30,7 +33,7 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
-  margin-top:20px;
+  margin-top:25px;
 }
 
 .zip-form>input[type='text']{
@@ -66,32 +69,27 @@
   align-items: center;
   font-size:20px;
   font-weight:bold;
-  margin-top:15px;
+  margin-top:25px;
 }
 
 .location-info>.result{
   margin-left:20px;
 }
 
-/* Images styles */
-.images{
-  display:flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top:15px;
-}
-
-.images-slide{
-  border-radius:10px;
-  margin-left:15px;
-}
-
 /*Forecast styles */
+.forecast-container{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top:20px;
+}
+
 .forecast{
   display:flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top:15px;
+  margin-top:25px;
 }
 
 .forecast-cell{

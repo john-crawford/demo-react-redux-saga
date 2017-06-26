@@ -1,16 +1,40 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {searchZip} from '../actions.js';
 
-export default class ZipForm extends Component{
+//connects state to props
+const mapStateToProps=(state)=> ({
+  location: state.location
+})
+
+//binds action creators to dispatch and connects to props
+const mapActionsToProps=(dispatch)=> bindActionCreators({searchZip}, dispatch)
+
+export class ZipForm extends Component{
   state={
-    zip:null
+    zip:''
   }
 
-  handleChange=(event)=>{
-    this.setState({zip:event.target.value})
-  }
-
-  handleClick=(event)=>{
+  handleClick=()=>{
     this.props.searchZip(this.state.zip)
+  }
+
+  handleKeyDown=(event)=>{
+    const code=event.keyCode
+    const key=event.key
+
+    if(code===13){
+      this.handleClick()
+    }else if(code===8){
+      this.setState({zip:this.state.zip.slice(0,-1)})
+    }else if(this.state.zip.length>=5){
+      this.setState({zip:this.state.zip})
+    }else if(!isNaN(key)){
+      this.setState({zip:this.state.zip+key})
+    }else{
+      this.setState({zip:this.state.zip})
+    }
   }
 
   render(){
@@ -19,8 +43,9 @@ export default class ZipForm extends Component{
         <input 
           type="text" 
           placeholder="Zip Code"
-          onChange={this.handleChange} 
-          value={this.state.zip} />
+          onKeyDown={this.handleKeyDown} 
+          value={this.state.zip} 
+        />
         <button onClick={this.handleClick}>
           <span className="fa fa-search" />
         </button>
@@ -29,3 +54,4 @@ export default class ZipForm extends Component{
   }
 }
 
+export default connect(mapStateToProps,mapActionsToProps)(ZipForm)

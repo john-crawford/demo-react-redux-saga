@@ -1,19 +1,39 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux';
 
-export default class LocationInfo extends Component{
+//connects state to props
+const mapStateToProps=(state)=> ({
+  location: state.location
+})
+
+export class LocationInfo extends Component{
   render(){
     return(
       <div className="location-info">
         {do{
-          if(this.props.city && this.props.stateCode){
-            <div>
-              <div className="large-title">
-                Location: {this.props.city}, {this.props.stateCode}
+          if(this.props.location){
+            if(this.props.location.error){
+              <div className="error-title">
+                Invalid Zip Code
               </div>
-            </div>
+            }else{
+              <div>
+                <div className="small-title">
+                  <div>
+                    Location: {this.props.location.city}, {this.props.location.stateCode}
+                  </div>
+                  <div>
+                    Longitude: {this.props.location.longitude}
+                  </div>
+                  <div>
+                    Latitude: {this.props.location.latitude}
+                  </div>
+                </div>
+              </div>
+            }
           }else{
-            <div className="large-title">
-              Enter a Zip Code
+            <div>
+              Submit a zip code to see some basic location information and a weather forecast.
             </div>
           }
         }}
@@ -21,3 +41,5 @@ export default class LocationInfo extends Component{
     )
   }
 }
+
+export default connect(mapStateToProps,null)(LocationInfo)
