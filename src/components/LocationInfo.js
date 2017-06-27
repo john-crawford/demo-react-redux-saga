@@ -17,7 +17,10 @@ export class LocationInfo extends Component{
                 Invalid Zip Code
               </div>
             }else{
-              <div>
+              <div className="location-result">
+                <div className="medium-title">
+                  ZipCodeAPI Information
+                </div>
                 <div className="small-title">
                   <div>
                     Location: {this.props.location.city}, {this.props.location.stateCode}

@@ -1,12 +1,6 @@
 import { fork, call, take, put } from 'redux-saga/effects'
-import {receiveLocation} from './actions'
+import {receiveLocation,receiveForecast,locationError} from './actions'
 import {getLocation} from './reducer'
-
-//export action types for testing purposes
-export const RECEIVE_LOCATION = 'RECEIVE_LOCATION';
-export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
-export const RECEIVE_FORECAST = 'RECEIVE_FORECAST';
-export const LOCATION_ERROR = 'LOCATION_ERROR';
 
 //hits the ZipCodeAPI to get city and state for the given zip code
 export const getCityState=(zip)=>{
@@ -41,11 +35,14 @@ export function* watchForZip() {
     const action=yield take('SEARCH_ZIP');
     const location=yield call(getCityState,action.zip)
     if(location.error_code){
-      yield put({type:LOCATION_ERROR})
+      // you can do this but it is cleaner to not
+      // yield put({type:LOCATION_ERROR})
+      yield put(locationError())
     }else{
-      yield put({type:RECEIVE_LOCATION,location})
+      yield put(receiveLocation(location))
       const forecast=yield call(getForecast, location)
-      yield put({type:RECEIVE_FORECAST,forecast})  
+      console.log(forecast)
+      yield put(receiveForecast(forecast))  
     }
   }
 }

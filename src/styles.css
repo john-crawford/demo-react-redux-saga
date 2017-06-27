@@ -72,8 +72,11 @@
   margin-top:25px;
 }
 
-.location-info>.result{
-  margin-left:20px;
+.location-result{
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items:center;
 }
 
 /*Forecast styles */
