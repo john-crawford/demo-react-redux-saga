@@ -34,7 +34,7 @@ npm test
 ## Files
 All files are in `src/`...
 
-- `actions.js`: contains action creators (or the one this demo has)
+- `actions.js`: contains action creators
 - `App.js`: primary component for the app
 - `index.html`: load file served in the browers
 - `main.js`: primary JS file (creates store, loads middleware and runs app)
