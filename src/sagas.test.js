@@ -1,14 +1,19 @@
 import { testSaga } from 'redux-saga-test-plan'
 import { 
-  RECEIVE_LOCATION,
-  RECEIVE_IMAGES,
-  RECEIVE_FORECAST,
-  LOCATION_ERROR,
   getCityState,
   getImages,
   getForecast,
   watchForZip
 } from './sagas'
+import {
+  receiveLocation,
+  receiveForecast,
+  locationError,
+  RECEIVE_LOCATION,
+  RECEIVE_IMAGES,
+  RECEIVE_FORECAST,
+  LOCATION_ERROR
+} from './actions'
 import sagaDriver from './sagas'
 
 //Saga Demo test suite

@@ -41,7 +41,6 @@ export function* watchForZip() {
     }else{
       yield put(receiveLocation(location))
       const forecast=yield call(getForecast, location)
-      console.log(forecast)
       yield put(receiveForecast(forecast))  
     }
   }
